@@ -1,6 +1,8 @@
 const express = require("express");
 const path = require("node:path");
-const inventoryRouter = require("./routes/inventoryRouter");
+const indexRouter = require("./routes/indexRouter");
+const productsRouter = require("./routes/productsRouter");
+const brandsRouter = require("./routes/brandsRouter");
 
 const app = express();
 const assetsPath = path.join(__dirname, "public");
@@ -11,7 +13,9 @@ app.use(express.urlencoded({ extended: true }));
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
-app.use("/", inventoryRouter);
+app.use("/products", productsRouter);
+app.use("/brands", brandsRouter);
+app.use("/", indexRouter);
 
 // Every thrown error in the application or the previous middleware function calling `next`
 // with an error as an argument will eventually go to this middleware function
