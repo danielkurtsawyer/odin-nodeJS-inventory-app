@@ -1,0 +1,44 @@
+@import url("https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Sora:wght@100..800&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  --color-primary-one: #a9a3ff;
+  --color-primary-two: #ff8864;
+  --color-accent-info: #42a5f5;
+  --color-accent-error: #e53935;
+  --color-accent-warning: #fbc02d;
+  --color-neutral-background: #fafafa;
+  --color-neutral-primary-text: #2e2e2e;
+  --color-neutral-secondary-text: #757575;
+  --color-neutral-borders: #e0e0e0;
+
+  --box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Sora", sans-serif;
+  font-weight: bold;
+}
+
+p {
+  font-family: "Mulish", sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+body {
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: 85px 1fr 50px;
+}

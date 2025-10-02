@@ -1,0 +1,45 @@
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 48px;
+  background-color: var(--color-neutral-background);
+
+  padding: 16px 24px;
+}
+
+.browse-products,
+.browse-brands {
+  border-radius: 12px;
+  height: 200px;
+  width: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  box-shadow: var(--box-shadow);
+}
+
+.browse-products {
+  background-color: var(--color-primary-one);
+}
+
+.browse-brands {
+  background-color: var(--color-primary-two);
+}
+
+@media (max-width: 1100px) {
+  main {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 600px) {
+  main {
+    gap: 24px;
+  }
+  .browse-products,
+  .browse-brands {
+    width: 90%;
+  }
+}

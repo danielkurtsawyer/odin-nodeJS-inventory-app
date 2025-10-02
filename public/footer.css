@@ -1,0 +1,12 @@
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: var(--color-neutral-secondary-text);
+  color: #ffffff;
+}
+
+footer p {
+  font-size: 14px;
+}
