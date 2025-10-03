@@ -5,6 +5,7 @@ const SQL = `
 CREATE TABLE IF NOT EXISTS category (
     category_id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
     category_name VARCHAR ( 255 ),
+    category_color VARCHAR ( 9 ),
     category_image_url TEXT
 );
 
@@ -25,17 +26,17 @@ CREATE TABLE IF NOT EXISTS products (
     brand_id INTEGER REFERENCES brand(brand_id)
 );
 
-INSERT INTO category (category_name, category_image_url)
+INSERT INTO category (category_name, category_color, category_image_url)
 VALUES 
-    ('Produce', 'https://media.licdn.com/dms/image/v2/C561BAQECKYPL5SZdgA/company-background_10000/company-background_10000/0/1614115931141/charlies_produce_cover?e=2147483647&v=beta&t=0lDqZHUr7XUZ6vas6mI32_XdnJD2i3oCf3Vn-D5XzBU'),
-    ('Dairy & Eggs', 'https://whisk.com/wp-content/uploads/2023/02/shutterstock_1679020255.jpg'),
-    ('Meat & Seafood', 'https://stumpsfamilymarket.com/wp-content/uploads/2020/03/Meat-1024x683.jpeg'),
-    ('Bakery', 'https://www.fooodlove.com/images/jcogs_img/cache/012-close-up-view-of-freshly-baked-bakery_-_28de80_-_8782e36ca3e8764a9e4719edc333d3a48e3f4ae7.webp'),
-    ('Pantry', 'https://denverite.com/cdn-cgi/image/width=3840,quality=75,format=auto/https://wp-denverite.s3.amazonaws.com/wp-content/uploads/sites/4/2022/11/221109-GOODR-GROCERY-STORE-FOOD-PANTRY-PLACE-BRIDGE-ACADEMY-DENVER-PUBLIC-SCHOOLS-DPS-FOOD-HUNGER-WASHINGTON-VIRGINIA-VALE-KEVINJBEATY-24.jpg'),
-    ('Snacks', 'https://i.etsystatic.com/31179194/r/il/f2f27a/6067457785/il_fullxfull.6067457785_i5km.jpg'),
-    ('Frozen Foods', 'https://www.chowhound.com/img/gallery/12-store-bought-frozen-meals-to-keep-out-of-your-cart/l-intro-1725980976.jpg'),
-    ('Beverages', 'https://eu-images.contentstack.com/v3/assets/blta023acee29658dfc/blta9f158c45627aa62/651dbb742365a678d7ec7f18/AdobeStock_279692163_Editorial_Use_Only-Beverage-FTR-new.jpg?disable=upscale&width=1200&height=630&fit=crop'),
-    ('Household', 'https://www.bobvila.com/wp-content/uploads/2023/07/iStock-1350786800-flammable-household-items-cleaning-supplies-arranged-in-circle.jpg?quality=85');
+    ('Produce', '#d6f5e3', 'https://media.licdn.com/dms/image/v2/C561BAQECKYPL5SZdgA/company-background_10000/company-background_10000/0/1614115931141/charlies_produce_cover?e=2147483647&v=beta&t=0lDqZHUr7XUZ6vas6mI32_XdnJD2i3oCf3Vn-D5XzBU'),
+    ('Dairy & Eggs', '#fff7cc', 'https://whisk.com/wp-content/uploads/2023/02/shutterstock_1679020255.jpg'),
+    ('Meat & Seafood', '#f5cccc', 'https://stumpsfamilymarket.com/wp-content/uploads/2020/03/Meat-1024x683.jpeg'),
+    ('Bakery', '#ffe5cc', 'https://www.fooodlove.com/images/jcogs_img/cache/012-close-up-view-of-freshly-baked-bakery_-_28de80_-_8782e36ca3e8764a9e4719edc333d3a48e3f4ae7.webp'),
+    ('Pantry', '#cce5f5', 'https://denverite.com/cdn-cgi/image/width=3840,quality=75,format=auto/https://wp-denverite.s3.amazonaws.com/wp-content/uploads/sites/4/2022/11/221109-GOODR-GROCERY-STORE-FOOD-PANTRY-PLACE-BRIDGE-ACADEMY-DENVER-PUBLIC-SCHOOLS-DPS-FOOD-HUNGER-WASHINGTON-VIRGINIA-VALE-KEVINJBEATY-24.jpg'),
+    ('Snacks', '#ede0ff', 'https://static01.nyt.com/images/2025/07/17/multimedia/17biz-frito-health-tpbw/17biz-frito-health-tpbw-googleFourByThree.jpg'),
+    ('Frozen Foods', '#e0f0ff', 'https://www.chowhound.com/img/gallery/12-store-bought-frozen-meals-to-keep-out-of-your-cart/l-intro-1725980976.jpg'),
+    ('Beverages', '#ffd6cc', 'https://eu-images.contentstack.com/v3/assets/blta023acee29658dfc/blta9f158c45627aa62/651dbb742365a678d7ec7f18/AdobeStock_279692163_Editorial_Use_Only-Beverage-FTR-new.jpg?disable=upscale&width=1200&height=630&fit=crop'),
+    ('Household', '#ebeff5', 'https://www.bobvila.com/wp-content/uploads/2023/07/iStock-1350786800-flammable-household-items-cleaning-supplies-arranged-in-circle.jpg?quality=85');
 
 
 INSERT INTO brand (brand_name, brand_image_url)

@@ -6,11 +6,13 @@
   box-sizing: border-box;
 
   --color-primary-one: hsl(280, 80%, 85%);
+  --color-primary-one-card: hsl(280, 80%, 96%);
+  --color-primary-one-card-border: hsl(280, 50%, 85%);
   --color-primary-two: hsl(35, 90%, 80%);
   --color-accent-info: #42a5f5;
   --color-accent-error: #e53935;
   --color-accent-warning: #fbc02d;
-  --color-neutral-background: #fafafa;
+  --color-neutral-background: #f4f7fa;
   --color-neutral-primary-text: #2e2e2e;
   --color-neutral-secondary-text: #757575;
   --color-neutral-borders: #e0e0e0;
@@ -73,6 +75,21 @@ body {
   transition: grid-template-rows 0.5s ease-in-out;
 }
 
+main {
+  background-color: var(--color-neutral-background);
+
+  padding: 48px 24px;
+}
+
+.main-container {
+  max-width: 1200px;
+  width: 100%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
 @media (max-width: 600px) {
   h1 {
     font-size: 28px;
@@ -92,5 +109,13 @@ body {
 
   body.open {
     grid-template-rows: 165px 1fr 35px;
+  }
+
+  main {
+    padding: 28px 24px;
+  }
+
+  .main-container {
+    gap: 24px;
   }
 }

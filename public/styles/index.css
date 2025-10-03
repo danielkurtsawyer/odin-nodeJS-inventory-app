@@ -1,21 +1,12 @@
-main {
-  background-color: var(--color-neutral-background);
-
-  padding: 48px;
-}
-.main-container {
-  max-width: 1200px;
-  width: 100%;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 48px;
-}
-
 .text-container {
   display: flex;
   flex-direction: column;
   gap: 24px;
+}
+
+.text-container h1 {
+  border-bottom: 3px solid #d1d5db;
+  padding-bottom: 2px;
 }
 
 .link-container {
@@ -36,7 +27,7 @@ main {
 
   box-shadow: var(--box-shadow);
 
-  transition: background-color 250ms ease-out 50ms;
+  transition: background-color 250ms ease-out;
 }
 
 .browse-products {
@@ -62,14 +53,6 @@ main {
 }
 
 @media (max-width: 600px) {
-  main {
-    padding: 28px 24px;
-  }
-
-  .main-container {
-    gap: 24px;
-  }
-
   .text-container {
     gap: 16px;
   }
