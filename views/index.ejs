@@ -12,13 +12,25 @@
   <body>
     <%- include('partials/header') %>
     <main>
-      <a href="/products" class="browse-products">
-        <h2>Browse Products</h2>
-      </a>
+      <div class="main-container">
+        <div class="text-container">
+          <h2>Welcome!</h2>
+          <p>
+            Welcome to Stock & Shop, your home for all your inventory management
+            needs! Please select an option below to browse and manage your
+            inventory.
+          </p>
+        </div>
 
-      <a href="/brands" class="browse-brands">
-        <h2>Browse Brands</h2>
-      </a>
+        <div class="link-container">
+          <a href="/products" class="browse-products">
+            <h2>Browse Products</h2>
+          </a>
+          <a href="/categories" class="browse-categories">
+            <h2>Browse Categories</h2>
+          </a>
+        </div>
+      </div>
     </main>
     <%- include('partials/footer') %>
   </body>

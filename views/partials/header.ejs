@@ -1,6 +1,24 @@
 <header>
-  <a href="/" class="stock-and-shop-logo-container">
-    <img src="/stock_and_shop_logo.svg" alt="" />
-    <h1>Stock & Shop</h1>
-  </a>
+  <script src="/scripts/header.js" defer></script>
+  <div class="header-container">
+    <a href="/" class="stock-and-shop-logo-container">
+      <img src="/icons/stock_and_shop_logo.svg" alt="" />
+      <h1>Stock & Shop</h1>
+    </a>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/products">Products</a></li>
+        <li><a href="/categories">Categories</a></li>
+      </ul>
+    </nav>
+    <div class="mobile-menu" onclick="toggleMobileMenu(this)">
+      <img src="/icons/menu.svg" alt="=" />
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/products">Products</a></li>
+        <li><a href="/categories">Categories</a></li>
+      </ul>
+    </div>
+  </div>
 </header>
