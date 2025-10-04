@@ -25,7 +25,6 @@
 
   border-radius: 12px;
   box-shadow: var(--box-shadow);
-  transition: background-color 250ms ease-out;
 }
 
 .category-card:hover {
