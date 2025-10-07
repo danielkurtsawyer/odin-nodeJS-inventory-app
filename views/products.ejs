@@ -6,6 +6,7 @@
     <link rel="icon" href="/icons/stock_and_shop_logo.svg" type="image/svg+xml">
     <link rel="stylesheet" href="/styles/styles.css" />
     <link rel="stylesheet" href="/styles/products.css" />
+    <link rel="stylesheet" href="/styles/filter.css" />
     <link rel="stylesheet" href="/styles/header.css" />
     <link rel="stylesheet" href="/styles/footer.css" />
     <title>Stock & Shop | <%= title %></title>
@@ -18,26 +19,30 @@
         <div class="contents-container">
           <div class="filters-container">
             <form action="/products" method="GET">
-              <fieldset>
+              <fieldset >
                 <legend>Category</legend>
                 
-                <% categories.forEach((category) => { %>
-                  <input type="checkbox" name="category" id="<%= category.category_id %>" value="<%= category.category_id %>" <%= selectedCategories.includes(category.category_id) ? 'checked' : '' %>>
-                  <label for="<%= category.category_id %>"><%= category.category_name %></label>
-                <% }); %>
-                
+                <div class="category-options">
+                  <% categories.forEach((category) => { %>
+                    <div class="category-container">
+                      <input type="checkbox" name="category" id="<%= category.category_id %>" value="<%= category.category_id %>" <%= selectedCategories.includes(category.category_id) ? 'checked' : '' %>>
+                      <label for="<%= category.category_id %>"><%= category.category_name %></label>
+                    </div>
+                  <% }); %>
+                </div>
               </fieldset>
 
-              <fieldset>
-                <label for="sort">Sort By</label>
-                <select name="sort" id="sort">
-                  <option value="none" <%= sort==='none' ? 'selected' : '' %>>--</option>
-                  <option value="priceAsc" <%= sort==='priceAsc' ? 'selected' : '' %>>Price Low to High</option>
-                  <option value="priceDesc" <%= sort==='priceDesc' ? 'selected' : '' %>>Price High to Low</option>
-                </select>
-              </fieldset>
-
-              <button type="submit">Apply</button>
+              <div class="sort-button-container">
+                <fieldset class="sort-by">
+                  <label for="sort">Sort By</label>
+                  <select name="sort" id="sort">
+                    <option value="none" <%= sort==='none' ? 'selected' : '' %>>--</option>
+                    <option value="priceAsc" <%= sort==='priceAsc' ? 'selected' : '' %>>Price Low to High</option>
+                    <option value="priceDesc" <%= sort==='priceDesc' ? 'selected' : '' %>>Price High to Low</option>
+                  </select>
+                </fieldset>
+                <button type="submit">Apply</button>
+              </div>
             </form>
           </div>
           <div class="products-container">

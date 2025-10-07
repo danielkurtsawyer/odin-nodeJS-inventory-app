@@ -3,6 +3,12 @@
   padding-bottom: 2px;
 }
 
+.contents-container {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
 .products-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, 200px);
