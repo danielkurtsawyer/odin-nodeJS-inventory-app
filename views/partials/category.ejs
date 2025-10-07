@@ -1,4 +1,4 @@
-<a href="/categories" class="category-card" style="background-color: <%= category.category_color %>;">
+<a href="/products?category=<%= category.category_id %>" class="category-card" style="background-color: <%= category.category_color %>;">
   <h3><%= category.category_name %></h3>
   <img src="<%= category.category_image_url %>"" alt="<%= category.category_name %>">
 </a>
