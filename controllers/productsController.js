@@ -2,9 +2,17 @@ const db = require("../db/queries");
 const { body, query, validationResult } = require("express-validator");
 
 const getProductsPage = async (req, res) => {
-  const products = await db.getAllProducts();
-  console.log(products);
-  res.render("products", { products: products });
+  const { sort, category } = req.query;
+  let products;
+
+  if (!category) {
+    products = await db.getAllProducts(sort);
+    res.render("products", {
+      title: "All Products",
+      products: products,
+      sort: sort,
+    });
+  }
 };
 
 const getProductPage = async (req, res) => {

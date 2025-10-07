@@ -8,17 +8,31 @@
     <link rel="stylesheet" href="/styles/products.css" />
     <link rel="stylesheet" href="/styles/header.css" />
     <link rel="stylesheet" href="/styles/footer.css" />
-    <title>Stock & Shop | All Products</title>
+    <title>Stock & Shop | <%= title %></title>
   </head>
   <body>
     <%- include('partials/header') %>
     <main>
       <div class="main-container">
         <h1>Products</h1>
-        <div class="products-container">
-          <% products.forEach((product) => { %>
-            <%- include('partials/product-card', {product: product}); %>
-          <% }); %>
+        <div class="contents-container">
+          <div class="filters-container">
+            <form action="/products" method="GET">
+              <label for="sort">Sort By</label>
+              <select name="sort" id="sort">
+                <option value="none" <%- sort==='none' ? 'selected' : '' %>>--</option>
+                <option value="priceAsc" <%- sort==='priceAsc' ? 'selected' : '' %>>Price Low to High</option>
+                <option value="priceDesc" <%- sort==='priceDesc' ? 'selected' : '' %>>Price High to Low</option>
+              </select>
+
+              <button type="submit">Apply</button>
+            </form>
+          </div>
+          <div class="products-container">
+            <% products.forEach((product) => { %>
+              <%- include('partials/product-card', {product: product}); %>
+            <% }); %>
+          </div>
         </div>
       </div>
     </main>

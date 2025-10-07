@@ -5,7 +5,16 @@ async function getAllCategories() {
   return rows;
 }
 
-async function getAllProducts() {
+async function getAllProducts(sortBy) {
+  let sortStatement;
+
+  if (sortBy === "priceDesc") {
+    sortStatement = "ORDER BY p.price DESC";
+  } else if (sortBy === "priceAsc") {
+    sortStatement = "ORDER BY p.price ASC";
+  } else {
+    sortStatement = "ORDER BY p.product_id";
+  }
   const SQL = `
   SELECT 
     p.product_id, 
@@ -20,7 +29,7 @@ async function getAllProducts() {
   ON p.category_id = c.category_id
   JOIN brand as b
   ON p.brand_id = b.brand_id
-  ORDER BY p.product_id;
+  ${sortStatement};
   `;
   const { rows } = await pool.query(SQL);
   return rows;
