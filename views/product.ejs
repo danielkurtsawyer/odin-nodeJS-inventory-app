@@ -17,7 +17,7 @@
         <div class="product-container" style="background-color: <%= product.category_color %>">
           <img src="<%= product.product_image_url %>" alt="<%= product.product_name %>">
           <div class="product-info">
-            <a href="/products" class="product-category"><%= product.category_name %></a>
+            <a href="/products?category=<%= product.category_id %>" class="product-category"><%= product.category_name %></a>
             <div class="product-core">
               <p class="product-brand"><%= product.brand_name %></p>
               <h1><%= product.product_name %></h1>
