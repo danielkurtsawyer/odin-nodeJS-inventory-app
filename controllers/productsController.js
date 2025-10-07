@@ -28,7 +28,7 @@ const getProductsPage = async (req, res) => {
       category.forEach((c) => selectedCategories.push(+c));
     }
 
-    products = await db.getAllProducts();
+    products = await db.getProductsByCategory(selectedCategories, sort);
 
     res.render("products", {
       title: "Products Filtered By Category",
