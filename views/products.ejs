@@ -15,7 +15,10 @@
     <%- include('partials/header') %>
     <main>
       <div class="main-container">
-        <h1>Products</h1>
+        <div class="heading-container">
+          <h1>Products</h1>
+          <a class="button" href="/add/product">Add Product</a>
+        </div>
         <div class="contents-container">
           <div class="filters-container">
             <form action="/products" method="GET">
