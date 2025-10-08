@@ -14,7 +14,10 @@
     <%- include('partials/header') %>
     <main>
       <div class="main-container">
-        <h1>Categories</h1>
+        <div class="heading-container">
+          <h1>Categories</h1>
+          <a class="button" href="/add/category">Add Category</a>
+        </div>
         <div class="categories-container">
           <% categories.forEach((category) => { %>
             <%- include('partials/category', {category: category}); %>
