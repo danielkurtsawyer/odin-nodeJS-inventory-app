@@ -2,11 +2,11 @@ const db = require("../db/queries");
 const { body, query, validationResult } = require("express-validator");
 
 const getAddProductPage = (req, res) => {
-  res.send("This is the add product page");
+  res.render("addProduct");
 };
 
 const getAddCategoryPage = (req, res) => {
-  res.send("This is the add category page");
+  res.render("addCategory");
 };
 
 module.exports = {
