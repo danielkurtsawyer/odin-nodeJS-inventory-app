@@ -1,5 +1,4 @@
 const db = require("../db/queries");
-const { body, query, validationResult } = require("express-validator");
 
 const getProductsPage = async (req, res) => {
   const { sort, category } = req.query;
