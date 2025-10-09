@@ -43,6 +43,7 @@ const getProductPage = async (req, res) => {
   const { productId } = req.params;
   const product = await db.getProduct(productId);
 
+  // Dedicated error page to be made eventually
   if (!product) {
     res.status(404).send("Product not found");
     return;
