@@ -1,0 +1,16 @@
+.error-container {
+  padding: 16px;
+  border: 1px solid var(--color-accent-error);
+  border-radius: 12px;
+  margin: auto;
+  font-family: "Mulish", sans-serif;
+  color: var(--color-accent-error);
+
+  background-color: var(--color-accent-error-light);
+
+  box-shadow: var(--box-shadow);
+}
+
+.error-container ul {
+  padding-left: 16px;
+}
