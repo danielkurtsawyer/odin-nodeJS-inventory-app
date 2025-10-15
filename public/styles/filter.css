@@ -12,8 +12,6 @@ form {
   display: flex;
   gap: 24px;
 
-  font-family: "Mulish", sans-serif;
-
   background-color: var(--color-primary-two);
 
   box-shadow: var(--box-shadow);
@@ -64,7 +62,6 @@ label {
 form button {
   background-color: var(--color-neutral-background);
   border: 2px solid var(--color-neutral-borders);
-  transition: background-color 250ms ease-out, border-color 250ms ease-out;
 }
 
 form button:hover {

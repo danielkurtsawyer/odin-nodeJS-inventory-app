@@ -15,6 +15,30 @@
     <main>
       <div class="main-container">
         <h1>Add a Product</h1>
+        <form action="/add/product" method="POST">
+          <div class="label-input-container">
+            <label for="product_name">Product Name:</label>
+            <input type="text" name="product_name" id="product_name">
+            <label for="price">Price: $</label>
+            <input type="number" name="price" id="price" step="0.01">
+            <label for="description">Description:</label>
+            <textarea name="description" id="description"></textarea>
+            <label for="quantity">Quantity:</label>
+            <input type="number" name="quantity" id="quantity">
+            <label for="product_image_url">Image URL:</label>
+            <input type="url" name="product_image_url" id="product_image_url">
+            <label for="category">Category:</label>
+            <select name="category_id" id="category">
+              <% categories.forEach((category) => { %>
+                <option value="<%= category.category_id %>"><%= category.category_name %></option>
+              <% }); %>
+            </select>
+            <label for="brand">Brand:</label>
+            <input type="text" name="brand" id="brand">
+          </div>
+
+          <button type="submit">Add Product</button>
+        </form>
       </div>
     </main>
     <%- include('partials/footer') %>

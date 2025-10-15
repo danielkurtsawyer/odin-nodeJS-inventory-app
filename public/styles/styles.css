@@ -77,6 +77,8 @@ button,
   padding: 8px 12px;
   border-radius: 12px;
   cursor: pointer;
+
+  transition: background-color 250ms ease-out, border-color 250ms ease-out;
 }
 
 body {
@@ -99,6 +101,14 @@ main {
   display: flex;
   flex-direction: column;
   gap: 48px;
+}
+
+form,
+form input,
+form textarea,
+form select {
+  font-family: "Mulish", sans-serif;
+  font-size: 16px;
 }
 
 @media (max-width: 600px) {

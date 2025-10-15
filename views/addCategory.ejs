@@ -15,6 +15,21 @@
     <main>
       <div class="main-container">
         <h1>Add a Category</h1>
+        <form action="/add/category" method="POST">
+          <div class="label-input-container">
+            <label for="category_name">Category Name:</label>
+            <input type="text" name="category_name" id="category_name">
+
+            <label for="category_color">Color (Please use light colors):</label>
+            <input type="color" name="category_color" id="category_color" value="#FFFFFF">
+
+            <label for="category_image_url">Image URL:</label>
+            <input type="url" name="category_image_url" id="category_image_url">
+
+          </div>
+
+          <button type="submit">Add Product</button>
+        </form>
       </div>
     </main>
     <%- include('partials/footer') %>
