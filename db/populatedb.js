@@ -4,14 +4,14 @@ require("dotenv").config();
 const SQL = `
 CREATE TABLE IF NOT EXISTS category (
     category_id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
-    category_name VARCHAR ( 255 ),
+    category_name VARCHAR ( 255 ) UNIQUE,
     category_color VARCHAR ( 9 ),
     category_image_url TEXT
 );
 
 CREATE TABLE IF NOT EXISTS brand (
     brand_id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
-    brand_name VARCHAR ( 255 ),
+    brand_name VARCHAR ( 255 ) UNIQUE,
     brand_image_url TEXT
 );
 
