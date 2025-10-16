@@ -11,8 +11,7 @@ CREATE TABLE IF NOT EXISTS category (
 
 CREATE TABLE IF NOT EXISTS brand (
     brand_id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
-    brand_name VARCHAR ( 28 ) UNIQUE,
-    brand_image_url TEXT
+    brand_name VARCHAR ( 28 ) UNIQUE
 );
 
 CREATE TABLE IF NOT EXISTS products (
@@ -39,34 +38,34 @@ VALUES
     ('Household', '#ebeff5', 'https://www.bobvila.com/wp-content/uploads/2023/07/iStock-1350786800-flammable-household-items-cleaning-supplies-arranged-in-circle.jpg?quality=85');
 
 
-INSERT INTO brand (brand_name, brand_image_url)
+INSERT INTO brand (brand_name)
 VALUES 
-    ('Dole', 'https://s202.q4cdn.com/638653076/files/images/our_history/Dole.png'),              -- bananas, pineapples
-    ('Driscoll''s', 'https://images.squarespace-cdn.com/content/v1/654966b56e99fd63ca807313/1702840871868-W2P56E8VPR7Z78SLWQYF/KatKlein_Client_Logos_Driscolls.png'),        -- strawberries, blueberries
-    ('Chiquita', 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Chiquita_logo_2019.svg/991px-Chiquita_logo_2019.svg.png'),          -- apples, bananas
-    ('Kraft', 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Kraft_logo_2012.svg/1280px-Kraft_logo_2012.svg.png'),             -- cheddar cheese, mac & cheese
-    ('Chobani', 'https://upload.wikimedia.org/wikipedia/commons/8/88/Chobani_2017_logo.svg'),           -- Greek yogurt, oat milk
-    ('Eggland''s Best', 'https://i.jebbit.com/images/daK2ZhJG/business-images/2vxlK3H8RyOlljbGwgRm_EB_Logo_High_Res_No_Farm_Fresh.png'),    -- large eggs, cage-free eggs
-    ('Tyson', 'https://www.tysonfoods.com/sites/default/files/inline-images/TFlogo_Full%20color_RGB%20copy_0.png'),             -- chicken breast, chicken nuggets
-    ('Oscar Mayer', 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Oscar_Mayer_logo_2021.svg/1200px-Oscar_Mayer_logo_2021.svg.png'),       -- bacon, hot dogs
-    ('Wonder', 'https://upload.wikimedia.org/wikipedia/en/2/24/Logo_of_Wonder_Bread.png'),            -- white bread, hamburger buns
-    ('Arnold', 'https://crdms.images.consumerreports.org/prod/products/cr/models/403168-bread-arnold-whole-grains-health-nut-10021590.png'),           -- whole wheat bread, sandwich thins
-    ('Barilla', 'https://img.favpng.com/13/16/8/logo-font-trademark-product-information-png-favpng-LeArjPjxvqnqeB7MBKjg4Hg1r.jpg'),          -- spaghetti, penne pasta
-    ('Heinz', 'https://1000logos.net/wp-content/uploads/2017/02/Heinz-Logo.png'),            -- ketchup, mustard
-    ('Del Monte', 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Logo_Del_Monte.svg/2560px-Logo_Del_Monte.svg.png'),        -- canned green beans, canned corn
-    ('Goya', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1MPzooU9Fc7uD1hefsbp8tS-iiS24VZjVug&s'),             -- black beans, chickpeas
-    ('Lay''s', 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Lay%27s_logo_2019.svg/1200px-Lay%27s_logo_2019.svg.png'),            -- potato chips, BBQ chips
-    ('Oreo', 'https://logos-world.net/wp-content/uploads/2022/10/Oreo-Logo.png'),             -- Oreo cookies, Golden Oreos
-    ('Nature Valley', 'https://upload.wikimedia.org/wikipedia/commons/1/16/Nature-valley-logo.png'),    -- granola bars, protein bars
-    ('DiGiorno', 'https://www.goodnes.com/sites/g/files/jgfbjl321/files/gdn_brand/DiGiorno%20Logo-01.png'),         -- frozen pizza, flatbread pizza
-    ('Birds Eye', 'https://static.wikia.nocookie.net/logopedia/images/c/cb/Birds_Eye_UK_2023.png/revision/latest?cb=20240215161035'),        -- frozen peas, frozen broccoli
-    ('Ben & Jerry''s', 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Ben_%26_Jerry%27s.svg/640px-Ben_%26_Jerry%27s.svg.png'),    -- Cherry Garcia, Chocolate Fudge Brownie
-    ('Coca-Cola', 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Coca-Cola_logo.svg/2560px-Coca-Cola_logo.svg.png'),        -- Coke, Sprite
-    ('PepsiCo', 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/PepsiCo_logo.svg/960px-PepsiCo_logo.svg.png?20210115205614'),          -- Pepsi, Mountain Dew
-    ('Tropicana', 'https://upload.wikimedia.org/wikipedia/en/thumb/b/b5/Tropicana_green_flat_logo.svg/1200px-Tropicana_green_flat_logo.svg.png'),        -- orange juice, grapefruit juice
-    ('Bounty', 'https://upload.wikimedia.org/wikipedia/en/thumb/c/c5/Bounty_logo.png/250px-Bounty_logo.png'),           -- paper towels, napkins
-    ('Clorox', 'https://uspto.report/TM/88190945/RFA20181115084959/2.jpeg'),           -- disinfecting wipes, bleach
-    ('Tide', 'https://logos-world.net/wp-content/uploads/2020/11/Tide-Logo-1966-1996.png');             -- laundry detergent, pods
+    ('Dole'),              -- bananas, pineapples
+    ('Driscoll''s'),        -- strawberries, blueberries
+    ('Chiquita'),          -- apples, bananas
+    ('Kraft'),             -- cheddar cheese, mac & cheese
+    ('Chobani'),           -- Greek yogurt, oat milk
+    ('Eggland''s Best'),    -- large eggs, cage-free eggs
+    ('Tyson'),             -- chicken breast, chicken nuggets
+    ('Oscar Mayer'),       -- bacon, hot dogs
+    ('Wonder'),            -- white bread, hamburger buns
+    ('Arnold'),           -- whole wheat bread, sandwich thins
+    ('Barilla'),          -- spaghetti, penne pasta
+    ('Heinz'),            -- ketchup, mustard
+    ('Del Monte'),        -- canned green beans, canned corn
+    ('Goya'),             -- black beans, chickpeas
+    ('Lay''s'),            -- potato chips, BBQ chips
+    ('Oreo'),             -- Oreo cookies, Golden Oreos
+    ('Nature Valley'),    -- granola bars, protein bars
+    ('DiGiorno'),         -- frozen pizza, flatbread pizza
+    ('Birds Eye'),        -- frozen peas, frozen broccoli
+    ('Ben & Jerry''s'),    -- Cherry Garcia, Chocolate Fudge Brownie
+    ('Coca-Cola'),        -- Coke, Sprite
+    ('PepsiCo'),          -- Pepsi, Mountain Dew
+    ('Tropicana'),        -- orange juice, grapefruit juice
+    ('Bounty'),           -- paper towels, napkins
+    ('Clorox'),           -- disinfecting wipes, bleach
+    ('Tide');             -- laundry detergent, pods
 
 
 INSERT INTO products (product_name, price, description, quantity, category_id, brand_id, product_image_url)

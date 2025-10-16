@@ -85,8 +85,7 @@ async function getProduct(productId) {
     p.category_id,
     c.category_name,
     c.category_color,
-    b.brand_name,
-    b.brand_image_url
+    b.brand_name
   FROM products AS p
   JOIN category AS c 
   ON p.category_id = c.category_id
