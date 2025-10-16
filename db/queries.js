@@ -99,9 +99,19 @@ async function getProduct(productId) {
   return rows.pop();
 }
 
+async function addCategory(category_name, category_color, category_image_url) {
+  const SQL = `
+    INSERT INTO category (category_name, category_color, category_image_url) 
+      VALUES ('${category_name}', '${category_color}', '${category_image_url}');
+  `;
+
+  await pool.query(SQL);
+}
+
 module.exports = {
   getAllCategories,
   getAllProducts,
   getProductsByCategory,
   getProduct,
+  addCategory,
 };

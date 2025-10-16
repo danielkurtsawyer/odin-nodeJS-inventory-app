@@ -4,12 +4,20 @@ const { body, query, validationResult } = require("express-validator");
 const nameErr = "must be between 1 and 255 characters.";
 const hexErr = "must be a hexadecimal color.";
 const urlErr = "must be a valid URL format.";
+const duplicateErr = "already exists.";
+
+const addExtraSingleQuote = (value) => {
+  if (typeof value === "string") {
+    return value.replace(/'/g, "''"); // Replaces each single quote with two single quotes
+  }
+  return value;
+};
 
 const validateCategory = [
   body("category_name")
     .trim()
-    .escape()
-    .isLength({ min: 1, max: 255 })
+    .isLength({ min: 1, max: 50 })
+    .customSanitizer(addExtraSingleQuote)
     .withMessage(`Category name ${nameErr}`),
   body("category_color")
     .trim()
@@ -22,7 +30,7 @@ const validateProduct = [
   body("product_name")
     .trim()
     .escape()
-    .isLength({ min: 1, max: 255 })
+    .isLength({ min: 1, max: 50 })
     .withMessage(`Product name ${nameErr}`),
 ];
 
@@ -44,10 +52,19 @@ const addCategoryPost = [
       return res.status(400).render("addCategory", { errors: errors.array() });
     }
 
+    const { category_name, category_color, category_image_url } = req.body;
     console.log(req.body);
-    res.redirect("/categories");
 
-    // check to ensure category doesn't exist
+    try {
+      await db.addCategory(category_name, category_color, category_image_url);
+    } catch (error) {
+      console.log(error);
+      return res.status(400).render("addCategory", {
+        errors: [{ msg: `Category name "${category_name}" ${duplicateErr}` }],
+      });
+    }
+
+    res.redirect("/categories");
   },
 ];
 
