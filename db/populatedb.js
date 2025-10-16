@@ -4,20 +4,20 @@ require("dotenv").config();
 const SQL = `
 CREATE TABLE IF NOT EXISTS category (
     category_id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
-    category_name VARCHAR ( 255 ) UNIQUE,
+    category_name VARCHAR ( 50 ) UNIQUE,
     category_color VARCHAR ( 9 ),
     category_image_url TEXT
 );
 
 CREATE TABLE IF NOT EXISTS brand (
     brand_id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
-    brand_name VARCHAR ( 255 ) UNIQUE,
+    brand_name VARCHAR ( 28 ) UNIQUE,
     brand_image_url TEXT
 );
 
 CREATE TABLE IF NOT EXISTS products (
     product_id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
-    product_name VARCHAR ( 255 ),
+    product_name VARCHAR ( 50 ),
     price DECIMAL,
     description VARCHAR ( 500 ),
     quantity INTEGER,
