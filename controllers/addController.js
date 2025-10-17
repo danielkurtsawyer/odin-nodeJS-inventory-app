@@ -5,6 +5,10 @@ const nameErr = "must be between 1 and 255 characters.";
 const hexErr = "must be a hexadecimal color.";
 const urlErr = "must be a valid URL format.";
 const duplicateErr = "already exists.";
+const priceErr = "must be a valid, positive currency format.";
+const quantityErr = "must be a positive integer or 0.";
+const descriptionErr = "must be less than 500 characters.";
+const brandErr = "must be between 1 and 28 characters.";
 
 const addExtraSingleQuote = (value) => {
   if (typeof value === "string") {
@@ -29,9 +33,32 @@ const validateCategory = [
 const validateProduct = [
   body("product_name")
     .trim()
-    .escape()
     .isLength({ min: 1, max: 50 })
+    .customSanitizer(addExtraSingleQuote)
     .withMessage(`Product name ${nameErr}`),
+  body("price")
+    .trim()
+    .isCurrency({ require_symbol: false, allow_negatives: false })
+    .withMessage(`Price ${priceErr}`),
+  body("description")
+    .trim()
+    .isLength({ max: 500 })
+    .withMessage(`Description ${descriptionErr}`)
+    .customSanitizer(addExtraSingleQuote),
+  body("quantity")
+    .trim()
+    .isInt({ min: 0, allow_leading_zeroes: false })
+    .withMessage(`Quantity ${quantityErr}`),
+  body("product_image_url").trim().isURL().withMessage(`Image URL ${urlErr}`),
+  body("category_id")
+    .trim()
+    .isInt({ min: 1 })
+    .withMessage("Category must be selected from dropdown."),
+  body("brand_name")
+    .trim()
+    .isLength({ min: 1, max: 28 })
+    .withMessage(`Brand name ${brandErr}`)
+    .customSanitizer(addExtraSingleQuote),
 ];
 
 const getAddProductPage = async (req, res) => {
@@ -71,10 +98,15 @@ const addCategoryPost = [
 const addProductPost = [
   validateProduct,
   async (req, res) => {
+    console.log(req.body);
     const errors = validationResult(req);
 
     if (!errors.isEmpty()) {
-      return res.status(400).render("addProduct", { errors: errors.array() });
+      const categories = await db.getAllCategories();
+      return res.status(400).render("addProduct", {
+        categories: categories,
+        errors: errors.array(),
+      });
     }
 
     console.log(req.body);
