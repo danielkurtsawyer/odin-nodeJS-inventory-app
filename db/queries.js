@@ -98,6 +98,59 @@ async function getProduct(productId) {
   return rows.pop();
 }
 
+async function addBrand(brand_name) {
+  const SQL = `
+  INSERT INTO brand (brand_name)
+    VALUES ('${brand_name}')
+  RETURNING brand_id;
+  `;
+  const { rows } = await pool.query(SQL);
+  const { brand_id } = rows.pop();
+  return brand_id;
+}
+
+async function getBrandID(brand_name) {
+  const SQL = `
+    SELECT brand_id FROM brand
+    WHERE brand_name = '${brand_name}';
+  `;
+
+  const { rows } = await pool.query(SQL);
+  return rows.pop();
+}
+
+async function addProduct(
+  product_name,
+  price,
+  description,
+  quantity,
+  product_image_url,
+  category_id,
+  brand_id
+) {
+  const SQL = `
+    INSERT INTO products (
+      product_name, 
+      price, 
+      description, 
+      quantity, 
+      product_image_url, 
+      category_id, 
+      brand_id
+    )
+      VALUES (
+        '${product_name}', 
+        ${price}, 
+        '${description}', 
+        ${quantity}, 
+        '${product_image_url}', 
+        ${category_id}, 
+        ${brand_id}
+      );
+  `;
+  await pool.query(SQL);
+}
+
 async function addCategory(category_name, category_color, category_image_url) {
   const SQL = `
     INSERT INTO category (category_name, category_color, category_image_url) 
@@ -112,5 +165,8 @@ module.exports = {
   getAllProducts,
   getProductsByCategory,
   getProduct,
+  addBrand,
+  getBrandID,
+  addProduct,
   addCategory,
 };

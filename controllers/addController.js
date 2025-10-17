@@ -110,6 +110,45 @@ const addProductPost = [
     }
 
     console.log(req.body);
+    const {
+      product_name,
+      price,
+      description,
+      quantity,
+      product_image_url,
+      category_id,
+      brand_name,
+    } = req.body;
+
+    try {
+      // see if brand exists - if so, get brand_id, if not, add brand_name and get brand_id
+      const brand_query_result = await db.getBrandID(brand_name);
+      let brand_id;
+      if (brand_query_result) {
+        brand_id = brand_query_result.brand_id;
+      } else {
+        brand_id = await db.addBrand(brand_name);
+      }
+
+      // add product to products table
+      await db.addProduct(
+        product_name,
+        price,
+        description,
+        quantity,
+        product_image_url,
+        category_id,
+        brand_id
+      );
+    } catch (error) {
+      const categories = await db.getAllCategories();
+      console.log(error);
+      return res.status(400).render("addProduct", {
+        categories: categories,
+        errors: [{ msg: "An error has occurred. Please try again." }],
+      });
+    }
+
     res.redirect("/products");
   },
 ];
