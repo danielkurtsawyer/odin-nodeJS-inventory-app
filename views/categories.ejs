@@ -26,6 +26,10 @@
             <%- include('partials/category', {category: category}); %>
           <% }); %>
         </div>
+
+        <% if(categories.length === 0) {%>
+          <p>No categories exist. Please add a category.</p>
+        <%}%>
       </div>
     </main>
     <%- include('partials/footer') %>
