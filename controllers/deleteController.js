@@ -13,7 +13,6 @@ const deleteCategoryPost = async (req, res) => {
 
 const deleteProductPost = async (req, res) => {
   const { product_id } = req.body;
-  console.log(product_id);
 
   await db.deleteProduct(product_id);
 
