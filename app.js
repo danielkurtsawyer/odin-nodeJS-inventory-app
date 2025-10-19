@@ -4,6 +4,7 @@ const indexRouter = require("./routes/indexRouter");
 const productsRouter = require("./routes/productsRouter");
 const categoriesRouter = require("./routes/categoriesRouter");
 const addRouter = require("./routes/addRouter");
+const deleteRouter = require("./routes/deleteRouter");
 
 const app = express();
 const assetsPath = path.join(__dirname, "public");
@@ -17,6 +18,7 @@ app.set("view engine", "ejs");
 app.use("/products", productsRouter);
 app.use("/categories", categoriesRouter);
 app.use("/add", addRouter);
+app.use("/delete", deleteRouter);
 app.use("/", indexRouter);
 
 // Every thrown error in the application or the previous middleware function calling `next`

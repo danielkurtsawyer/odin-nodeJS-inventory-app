@@ -160,6 +160,18 @@ async function addCategory(category_name, category_color, category_image_url) {
   await pool.query(SQL);
 }
 
+async function deleteCategory(category_id) {
+  const SQL = `
+    DELETE FROM products
+    WHERE category_id = ${category_id};
+
+    DELETE FROM category
+    WHERE category_id = ${category_id};
+  `;
+
+  await pool.query(SQL);
+}
+
 module.exports = {
   getAllCategories,
   getAllProducts,
@@ -169,4 +181,5 @@ module.exports = {
   getBrandID,
   addProduct,
   addCategory,
+  deleteCategory,
 };
