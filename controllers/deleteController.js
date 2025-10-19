@@ -11,7 +11,17 @@ const deleteCategoryPost = async (req, res) => {
   res.redirect("/categories");
 };
 
+const deleteProductPost = async (req, res) => {
+  const { product_id } = req.body;
+  console.log(product_id);
+
+  await db.deleteProduct(product_id);
+
+  res.redirect("/products");
+};
+
 module.exports = {
   getDeleteCategoryPage,
   deleteCategoryPost,
+  deleteProductPost,
 };

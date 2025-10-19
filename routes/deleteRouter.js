@@ -5,6 +5,6 @@ const deleteRouter = Router();
 deleteRouter.get("/category", deleteController.getDeleteCategoryPage);
 
 deleteRouter.post("/category", deleteController.deleteCategoryPost);
-//deleteRouter.post("/product", deleteController.deleteProductPost);
+deleteRouter.post("/product", deleteController.deleteProductPost);
 
 module.exports = deleteRouter;

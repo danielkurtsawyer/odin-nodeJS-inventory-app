@@ -19,6 +19,29 @@
   align-self: center;
 }
 
+.product-container .buttons-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.product-container .buttons-container form input {
+  display: none;
+}
+
+button.delete {
+  color: var(--color-accent-error);
+
+  background-color: var(--color-accent-error-light);
+  border: 1px solid var(--color-accent-error);
+}
+
+button.delete:hover {
+  color: var(--color-neutral-background);
+
+  background-color: var(--color-accent-error);
+  border: 1px solid var(--color-accent-error);
+}
+
 .product-container .product-info {
   display: flex;
   flex-direction: column;

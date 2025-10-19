@@ -172,6 +172,15 @@ async function deleteCategory(category_id) {
   await pool.query(SQL);
 }
 
+async function deleteProduct(product_id) {
+  const SQL = `
+    DELETE FROM products
+    WHERE product_id = ${product_id};
+  `;
+
+  await pool.query(SQL);
+}
+
 module.exports = {
   getAllCategories,
   getAllProducts,
@@ -182,4 +191,5 @@ module.exports = {
   addProduct,
   addCategory,
   deleteCategory,
+  deleteProduct,
 };
