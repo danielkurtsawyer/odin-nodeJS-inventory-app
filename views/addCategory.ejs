@@ -15,7 +15,10 @@
     <%- include('partials/header') %>
     <main>
       <div class="main-container">
-        <h1>Add a Category</h1>
+        <div class="heading-container">
+          <h1>Add a Category</h1>
+          <a href="/categories" class="button">Back</a>
+        </div>
 
         <% if (locals.errors) {%>
           <div class="error-container">
