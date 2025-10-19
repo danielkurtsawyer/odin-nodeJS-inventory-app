@@ -16,7 +16,10 @@
       <div class="main-container">
         <div class="heading-container">
           <h1>Categories</h1>
-          <a class="button" href="/add/category">Add Category</a>
+          <div class="button-container">
+            <a href="/delete/category" class="button delete">Delete Category</a>
+            <a class="button" href="/add/category">Add Category</a>
+          </div>
         </div>
         <div class="categories-container">
           <% categories.forEach((category) => { %>
