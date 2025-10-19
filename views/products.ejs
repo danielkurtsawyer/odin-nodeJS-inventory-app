@@ -25,6 +25,10 @@
             <% products.forEach((product) => { %>
               <%- include('partials/product-card', {product: product}); %>
             <% }); %>
+
+            <% if(products.length===0) { %>
+              <p>No products exist. Please add a product.</p>
+            <% } %>
           </div>
         </div>
       </div>
