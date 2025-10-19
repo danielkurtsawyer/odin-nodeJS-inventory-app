@@ -1,4 +1,4 @@
-.main-container h1 {
+.main-container .heading-container {
   border-bottom: 3px solid #d1d5db;
   padding-bottom: 8px;
   display: flex;
@@ -35,4 +35,15 @@ button.delete:hover {
 
   background-color: var(--color-accent-error);
   border: 1px solid var(--color-accent-error);
+}
+
+.heading-container a.button {
+  background-color: var(--color-primary-one-card);
+  border: 2px solid var(--color-primary-one-card-border);
+  transition: background-color 250ms ease-in-out, border-color 250ms ease-in-out;
+}
+
+.heading-container a.button:hover {
+  background-color: var(--color-primary-one);
+  border-color: var(--color-primary-one-hover);
 }
