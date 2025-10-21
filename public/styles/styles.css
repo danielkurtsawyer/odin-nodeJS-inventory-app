@@ -81,6 +81,7 @@ button,
   padding: 8px 12px;
   border-radius: 12px;
   cursor: pointer;
+  box-shadow: var(--box-shadow);
 
   transition: background-color 250ms ease-out, border-color 250ms ease-out;
 }
