@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/icons/stock_and_shop_logo.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="/styles/styles.css" />
+    <link rel="stylesheet" href="/styles/header.css" />
+    <link rel="stylesheet" href="/styles/footer.css" />
+    <link rel="stylesheet" href="/styles/updateProduct.css" />
+    <link rel="stylesheet" href="/styles/errors.css">
+    <title>Stock & Shop | Add a Product</title>
+  </head>
+  <body>
+    <%- include('partials/header') %>
+    <main>
+      <div class="main-container">
+        <div class="heading-container">
+          <h1>Update Product</h1>
+          <a href="/products" class="button">Back to Products</a>
+        </div>
+
+        <% if (locals.errors) {%>
+          <div class="error-container">
+            <ul>
+              <% errors.forEach((error) => { %>
+                <li><%= error.msg %> </li>
+              <% }); %>
+            </ul>
+          </div>
+        <%} %>
+
+        <form action="/update/<%= product.product_id %>" method="POST">
+          <div class="label-input-container">
+            <label for="product_name">Product Name:</label>
+            <input type="text" name="product_name" id="product_name" value="<%= product.product_name %>" required>
+            <label for="price">Price: $</label>
+            <input type="number" name="price" id="price" step="0.01" value="<%= product.price %>" required>
+            <label for="description">Description:</label>
+            <textarea name="description" id="description"><%= product.description %></textarea>
+            <label for="quantity">Quantity:</label>
+            <input type="number" name="quantity" id="quantity" value="<%= product.quantity %>" required>
+            <label for="product_image_url">Image URL:</label>
+            <input type="text" name="product_image_url" id="product_image_url" value="<%= product.product_image_url %>" required>
+            <label for="category">Category:</label>
+            <select name="category_id" id="category" required>
+              <% categories.forEach((category) => { %>
+                <option value="<%= category.category_id %>" ><%= category.category_name %></option>
+              <% }); %>
+            </select>
+            <label for="brand_name">Brand:</label>
+            <input type="text" name="brand_name" id="brand_name" value="<%= product.brand_name %>" required>
+          </div>
+
+          <button type="submit">Update Product</button>
+        </form>
+      </div>
+    </main>
+    <%- include('partials/footer') %>
+  </body>
+</html>
