@@ -63,16 +63,18 @@ const updateProductPost = [
   validateProduct,
   async (req, res) => {
     const errors = validationResult(req);
+    const { product_id } = req.params;
+
+    const product = await db.getProduct(product_id);
 
     if (!errors.isEmpty()) {
       const categories = await db.getAllCategories();
       return res.status(400).render("updateProduct", {
+        product: product,
         categories: categories,
         errors: errors.array(),
       });
     }
-
-    const { product_id } = req.params;
 
     const {
       product_name,
@@ -83,6 +85,37 @@ const updateProductPost = [
       category_id,
       brand_name,
     } = req.body;
+
+    try {
+      // see if brand exists - if so, get brand_id, if not, add brand_name and get brand_id
+      const brand_query_result = await db.getBrandID(brand_name);
+      let brand_id;
+      if (brand_query_result) {
+        brand_id = brand_query_result.brand_id;
+      } else {
+        brand_id = await db.addBrand(brand_name);
+      }
+
+      // update product on product_id
+      await db.updateProduct(
+        product_id,
+        product_name,
+        price,
+        description,
+        quantity,
+        product_image_url,
+        category_id,
+        brand_id
+      );
+    } catch (error) {
+      const categories = await db.getAllCategories();
+      console.log(error);
+      return res.status(400).render("updateProduct", {
+        product: product,
+        categories: categories,
+        errors: [{ msg: "An error has occurred. Please try again." }],
+      });
+    }
 
     res.redirect(`/products/${product_id}`);
   },

@@ -181,6 +181,31 @@ async function deleteProduct(product_id) {
   await pool.query(SQL);
 }
 
+async function updateProduct(
+  product_id,
+  product_name,
+  price,
+  description,
+  quantity,
+  product_image_url,
+  category_id,
+  brand_id
+) {
+  const SQL = `
+    UPDATE products
+    SET 
+      product_name = '${product_name}',
+      price = ${price},
+      description = '${description}',
+      quantity = ${quantity},
+      product_image_url = '${product_image_url}',
+      category_id = ${category_id},
+      brand_id = ${brand_id}
+    WHERE product_id = ${product_id};
+  `;
+  await pool.query(SQL);
+}
+
 module.exports = {
   getAllCategories,
   getAllProducts,
@@ -192,4 +217,5 @@ module.exports = {
   addCategory,
   deleteCategory,
   deleteProduct,
+  updateProduct,
 };
