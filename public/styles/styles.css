@@ -9,6 +9,9 @@
   --color-primary-one-card: hsl(280, 80%, 96%);
   --color-primary-one-card-border: hsl(280, 50%, 85%);
   --color-primary-two: hsl(35, 90%, 80%);
+  --color-primary-two-border: hsl(35, 100%, 68%);
+  --color-primary-two-hover: hsl(35, 100%, 56%);
+  --color-primary-two-border-hover: hsl(35, 100%, 50%);
   --color-accent-info: #42a5f5;
   --color-accent-error: #e53935;
   --color-accent-error-light: #f5e6e5;
