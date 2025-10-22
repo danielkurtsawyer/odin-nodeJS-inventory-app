@@ -76,6 +76,7 @@ button,
 .button {
   font-family: "Mulish", sans-serif;
   font-size: 16px;
+  color: var(--color-neutral-primary-text);
   height: max-content;
   width: max-content;
   padding: 8px 12px;
